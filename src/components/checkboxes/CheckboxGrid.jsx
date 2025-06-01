@@ -4,7 +4,7 @@ import {LIFE_STAGES} from '../../Context.jsx';
 
 
 const TOTAL_ITEMS = 4680; 
-const BATCH_SIZE = 416; 
+const BATCH_SIZE = 500; 
 
 const CheckboxGrid = ({ activeCount = 0 }) => {
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
@@ -47,21 +47,19 @@ const CheckboxGrid = ({ activeCount = 0 }) => {
 
   return (
     <>
-    <div style={{ padding: '16px', fontFamily: 'Inter, sans-serif' }}>
-
-
+    <div style={{fontFamily: 'Inter, sans-serif' }}>
       <div
         style={{
           display: 'flex',
+          justifyContent:'center',
           flexWrap: 'wrap',
-          gap: '6px', 
+          gap: '2.4px', 
         }}
       >
         {Array.from({ length: visibleCount }, (_, i) => (
           <Checkbox
             key={i}
-            checked={i < activeCount}
-            size={27}
+            checked={i < activeCount}            
             color={getCheckboxColor(i)} 
           />
         ))}

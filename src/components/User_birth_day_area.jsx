@@ -95,24 +95,24 @@ function User_birth_date_area({ setweeks }) {
       <h4>Sisesta oma sünnipäev</h4>
       <form style={{ display: "flex", flexWrap: "wrap", gap: "1vw", justifyContent: "center" }}
         onSubmit={handleSubmit}>
-        <Input
-          title="Aasta"
-          desc="Sünniaasta"
-          name="year"
-          value={yearInput}
-          onChange={(e) => setYearInput(e.target.value)}
-        />
-        <Dropdown
-          options={monthNames}
-          onSelect={setMonthName}
-        />
-        <Input
-          title="Päev"
-          desc="Sünnipäev"
-          name="day"
-          value={dayInput}
-          onChange={(e) => setDayInput(e.target.value)}
-        />
+  <Input
+    title="Aasta"
+    desc="Sünniaasta"
+    name="year"
+    value={yearInput}
+    onChange={(e) => setYearInput(e.target.value)}    
+  />
+  <Dropdown          
+    options={monthNames}
+    onSelect={setMonthName}    
+  />
+  <Input
+    title="Päev"
+    desc="Sünnipäev"
+    name="day"
+    value={dayInput}
+    onChange={(e) => setDayInput(e.target.value)}    
+  />
         <div style={{ width: "100%" }}>
           <Button text="Esita" type="submit" />
         </div>
@@ -123,7 +123,7 @@ function User_birth_date_area({ setweeks }) {
           Arvutatud nädalad: {calculatedWeeks}
         </p>
       )}
-      <Divider />
+      <Divider />        
     </Container>
   );
 }

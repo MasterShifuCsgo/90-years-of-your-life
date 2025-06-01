@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-const Radio = ({ options = [], onSelect }) => {
+const Radio = ({ options = [], onSelect}) => {
   const firstOption = options[0] || 'Select';
   const [open, setOpen] = useState(false);
   const [maxWidth, setMaxWidth] = useState('auto');
@@ -79,9 +79,9 @@ const handleOptionClick = (option) => {
         ))}
       </div>
         
-      <StyledWrapper className={`${open ? 'open' : ''}`} $maxWidth={maxWidth} ref={wrapperRef}>
+      <StyledWrapper className={open ? 'open' : ''} $maxWidth={maxWidth} ref={wrapperRef}>
   {/* Eemalda style={{display: "flex", alignItems:"flex-end"}} siit */}
-  <div className="select" onClick={() => setOpen((prev) => !prev)}>
+  <div className="select" style={{marginTop:"14px"}} onClick={() => setOpen((prev) => !prev)}>
     <div className="selected">
       {selectedValue} {/* Kuvab valitud väärtuse otse Reactist */}
       <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" className="arrow">

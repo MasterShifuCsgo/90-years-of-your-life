@@ -1,52 +1,35 @@
-import React, { useId } from 'react';
+// Checkbox.jsx
+import React from 'react'; // useId is no longer needed as there's no input/label pair
 import styled from 'styled-components';
 
-const Checkbox = ({ checked = false, size = 27, color = '#4d86ff' }) => { // Renamed component to start with capital 'C'
-  const uniqueId = useId();
-
+const Checkbox = ({ checked = false, color = '#4d86ff' }) => {
+  // No uniqueId needed anymore as there's no <input> or <label>
   return (
-    // FIX: Pass 'color' as a transient prop '$checkedColor'
-    <StyledWrapper size={size} $checkedColor={color}> 
-      <input
-        className="hidden-xs-up custom-cbx"
-        id={uniqueId}
-        type="checkbox"
-        checked={checked}
-        readOnly
-      />
-      <label className="cbx" htmlFor={uniqueId} />
-    </StyledWrapper>
+    // The StyledBox will now be the visual representation of the checkbox
+    // We pass 'checked' and '$checkedColor' as props for styling
+    <StyledBox $checked={checked} $checkedColor={color} />
   );
 };
 
-const StyledWrapper = styled.div`
-  .cbx {
-    position: relative;
-    top: 1px;
-    width: ${(props) => props.size}px;
-    height: ${(props) => props.size}px;
-    border: 1px solid #475569;
-    border-radius: 10px;
-    transition: background 0.2s ease;
-    cursor: pointer;
-    display: block;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  }
+const StyledBox = styled.div`
+  position: relative;
+  /* Removed 'top: 1px;' as it was likely to visually align with text */
+  width: clamp(9px, 1vw, 70px);
+  height: clamp(9px, 1vw, 70px);
+  border: 1px solid #475569;
+  border-radius: 10px;
+  cursor: pointer; /* Keep cursor pointer to indicate it's clickable (even if it's read-only) */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 
-  .cntr {
-    position: relative;
-  }
+  /* Based on the '$checked' prop, apply background and animation */
+  background: ${props => props.$checked ? props.$checkedColor : 'transparent'};
+  border-color: ${props => props.$checked ? 'transparent' : '#475569'}; /* Border color changes too */
+  transition: background 0.2s ease, border-color 0.2s ease; /* Smooth transition */
 
-  .hidden-xs-up {
-    display: none !important;
-  }
-
-  input.custom-cbx:checked + .cbx {
-    border-color: transparent;
-    // FIX: Use the transient prop '$checkedColor' here
-    background: ${(props) => props.$checkedColor}; 
+  /* Apply jelly animation only when checked state changes to true */
+  ${props => props.$checked && `
     animation: jelly 0.4s ease;
-  }
+  `}
 
   @keyframes jelly {
     from { transform: scale(1, 1); }
@@ -58,4 +41,4 @@ const StyledWrapper = styled.div`
   }
 `;
 
-export default Checkbox; // Export with capital 'C'
+export default Checkbox;

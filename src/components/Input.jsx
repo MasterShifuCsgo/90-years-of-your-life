@@ -13,6 +13,7 @@ const Input = ({ title, desc, name, type = 'text', value, onChange }) => { // Li
           className="input"
           value={value} // Seo input olekuga
           onChange={onChange} // Uuenda olekut muutumisel
+          
         />
       </div>
     </StyledWrapper>
