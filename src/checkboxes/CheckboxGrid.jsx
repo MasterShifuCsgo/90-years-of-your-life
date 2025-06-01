@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Checkbox from './Checkbox';
 
 const TOTAL_ITEMS = 4680;
-const BATCH_SIZE = 312;
+const BATCH_SIZE = 468;
 
 const CheckboxGrid = ({ activeCount = 0 }) => {
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);

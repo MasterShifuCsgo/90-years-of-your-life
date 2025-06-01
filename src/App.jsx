@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Input from "./Input";
 import CheckboxGrid from "./checkboxes/CheckboxGrid";
 import Button from "./Button";
+import Dropdown from "./DropdownUI";
 
 const AboveDiv = styled.div`
   background-color: #C8C8C8;
@@ -24,7 +25,7 @@ const BottomDiv = styled.div`
   background-color: #FAFAFA;
   padding: 2em 5vw;  
   justify-content: center;
-  
+
 `;
 
 const Divider = styled.div`
@@ -58,35 +59,50 @@ const Container = styled.div`
 
 function User_birth_date_area({setweeks}) {
 
+const [month2, setMonth] = useState();
 
  
 function handleSubmit(e){
   e.preventDefault();
   const form = e.target;
 
-  const year = form.elements["year"].value;
-  const month = form.elements["month"].value;
-  const day = form.elements["day"].value; 
+  // Ensure year, month, and day are parsed as numbers (base 10)
+  const year = parseInt(form.elements["year"].value, 10);
+  const month = parseInt(month2, 10); // <--- Assuming 'monthValueFromDropdown' is the 1-12 number
+  const day = parseInt(form.elements["day"].value, 10);
 
-  const date = new Date();
+  // --- Input Validation ---
+  if (isNaN(year) || isNaN(month) || isNaN(day) || month < 1 || month > 12) {
+    console.error("Please enter a valid year, month (1-12), and day.");
+    setweeks(0); // Reset weeks on error
+    return;
+  }
 
-  const year_now = date.getFullYear();
-  const month_now = date.getMonth();
-  const day_now = date.getDate();
+  // --- Date Object Creation ---
+  // JS Date month is 0-indexed (0 for Jan, 11 for Dec), so subtract 1 from your 1-12 month number.
+  const userDate = new Date(year, month - 1, day);
 
-  //convert to weeks
-  // jan = 1
-  // dec = 12
-const userDate = new Date(year, month - 1, day); // JS kuud on 0-põhised
-const nowDate = new Date(year_now, month_now - 1, day_now);
+  // Get current date and normalize to start of today for accurate comparison
+  const nowDate = new Date();
+  nowDate.setHours(0, 0, 0, 0);
 
-const msInWeek = 1000 * 60 * 60 * 24 * 7;
-const weekDiff = Math.ceil((nowDate - userDate) / msInWeek);
+  // --- Date Validation (post-creation) ---
+  // Check if the date constructed is valid (e.g., Feb 30th) and not in the future
+  if (isNaN(userDate.getTime()) || userDate > nowDate) {
+    console.error("The entered birth date is invalid or in the future.");
+    setweeks(0); // Reset weeks on error
+    return;
+  }
 
-setweeks(weekDiff);
-console.log(weekDiff);
+  // --- Week Difference Calculation ---
+  const msInWeek = 1000 * 60 * 60 * 24 * 7;
+  // Calculate completed weeks (Math.floor is for completed weeks)
+  const weekDiff = Math.floor((nowDate.getTime() - userDate.getTime()) / msInWeek);
 
+  setweeks(weekDiff);
+  console.log("Weeks lived (accurate):", weekDiff);
 }
+
 
 return (
     <Container>
@@ -95,7 +111,23 @@ return (
         onSubmit={handleSubmit}
         >
         <Input title="Year" desc="Birth year" name="year" />
-        <Input title="Month" desc="Birth Month" name="month"/>
+        <Dropdown
+          options={[
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+          ]}
+          setValue={setMonth}
+        />
         <Input title="Day" desc="Birth day" name="day"/>
         <div style={{ width: "100%" }}>
           <Button text="Submit" type="submit"/>
