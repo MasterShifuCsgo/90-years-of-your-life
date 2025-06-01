@@ -4,7 +4,7 @@ import {LIFE_STAGES} from '../../Context.jsx';
 
 
 const TOTAL_ITEMS = 4680; 
-const BATCH_SIZE = 500; 
+const BATCH_SIZE = 1560; 
 
 const CheckboxGrid = ({ activeCount = 0 }) => {
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);

@@ -23,10 +23,11 @@ function User_birth_date_area({ setweeks }) {
   const [errorMessage, setErrorMessage] = useState(''); // State for error messages
   const [calculatedWeeks, setCalculatedWeeks] = useState(null); // State to display calculated week  
 
-  const monthNames = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ];
+const monthNames = [
+  'Vali kuu', // Choose month (as in, "Please choose a month")
+  'Jaanuar', 'Veebruar', 'Märts', 'Aprill', 'Mai', 'Juuni',
+  'Juuli', 'August', 'September', 'Oktoober', 'November', 'Detsember'
+];
 
 
 
