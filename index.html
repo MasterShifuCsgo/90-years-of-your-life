@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>90 years of your life</title>
+  </head>
+<style>
+  body {
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    padding: 2em 5vw; /* Use viewport width for responsiveness */
+    align-items: center;
+    margin: 0;
+  }
+
+  .held_container {
+    width: 100%;
+    max-width: 2600px; /* Caps container size on large screens */
+    min-height: 100vh;  /* Full height of viewport */
+    background-color: white;
+    padding: 1em;
+    box-sizing: border-box;
+  }
+</style>
+  <body>
+    <div id="root" class="held_container"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
