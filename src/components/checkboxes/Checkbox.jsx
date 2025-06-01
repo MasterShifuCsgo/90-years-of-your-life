@@ -1,38 +1,30 @@
 import React, { useId } from 'react';
 import styled from 'styled-components';
 
-
-const Checkbox = ({ defaultChecked = true, size= 27}) => {
+const Checkbox = ({ checked = false, size = 27, color = '#4d86ff' }) => { // Renamed component to start with capital 'C'
   const uniqueId = useId();
 
   return (
-    <StyledWrapper>
+    // FIX: Pass 'color' as a transient prop '$checkedColor'
+    <StyledWrapper size={size} $checkedColor={color}> 
       <input
         className="hidden-xs-up custom-cbx"
         id={uniqueId}
         type="checkbox"
-        defaultChecked={defaultChecked}
+        checked={checked}
+        readOnly
       />
       <label className="cbx" htmlFor={uniqueId} />
     </StyledWrapper>
   );
 };
 
-
 const StyledWrapper = styled.div`
-  .cntr {
-    position: relative;
-  }
-
-  .hidden-xs-up {
-    display: none !important;
-  }
-
   .cbx {
     position: relative;
     top: 1px;
-    width: 17px;
-    height: 17px;
+    width: ${(props) => props.size}px;
+    height: ${(props) => props.size}px;
     border: 1px solid #475569;
     border-radius: 10px;
     transition: background 0.2s ease;
@@ -41,15 +33,19 @@ const StyledWrapper = styled.div`
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 
-  input.custom-cbx:checked + .cbx {
-    border-color: transparent;
-    background:rgb(77, 134, 255);
-    animation: jelly 0.4s ease;
+  .cntr {
+    position: relative;
   }
 
-  input.custom-cbx:checked + .cbx::after {
-    opacity: 1;
-    transform: rotate(45deg) scale(1);
+  .hidden-xs-up {
+    display: none !important;
+  }
+
+  input.custom-cbx:checked + .cbx {
+    border-color: transparent;
+    // FIX: Use the transient prop '$checkedColor' here
+    background: ${(props) => props.$checkedColor}; 
+    animation: jelly 0.4s ease;
   }
 
   @keyframes jelly {
@@ -62,4 +58,4 @@ const StyledWrapper = styled.div`
   }
 `;
 
-export default Checkbox;
+export default Checkbox; // Export with capital 'C'

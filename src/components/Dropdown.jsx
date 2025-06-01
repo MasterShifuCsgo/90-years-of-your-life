@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-const Radio = ({ options = [], setValue }) => {
+const Radio = ({ options = [], onSelect }) => {
   const firstOption = options[0] || 'Select';
   const [open, setOpen] = useState(false);
   const [maxWidth, setMaxWidth] = useState('auto');
@@ -51,10 +51,10 @@ const handleOptionClick = (option) => {
 
   let monthNumber = null;
   if (monthIndex !== -1) { // Kontrolli, et kuunimi leiti massiivist
-    monthNumber = monthIndex + 1; // Lisa 1, et saada 1-12 number
-    
+    monthNumber = monthIndex + 1; // Lisa 1, et saada 1-12 number    
   }
-  setValue(monthNumber);
+  
+  onSelect(monthNumber);
   setOpen(false); // Sulgeb menüü pärast valimist
 };
 

@@ -1,12 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Input = ({ title, desc, name, type = 'text' }) => {
+const Input = ({ title, desc, name, type = 'text', value, onChange }) => { // Lisa 'value' ja 'onChange' atribuudid siia
   return (
     <StyledWrapper>
       <div className="coolinput">
-        <label htmlFor="input" className="text">{title}</label>
-        <input type={type} placeholder={desc} name={name} className="input" />
+        <label htmlFor={name} className="text">{title}</label> {/* Kasuta 'name' 'htmlFor' jaoks */}
+        <input
+          type={type}
+          placeholder={desc}
+          name={name}
+          className="input"
+          value={value} // Seo input olekuga
+          onChange={onChange} // Uuenda olekut muutumisel
+        />
       </div>
     </StyledWrapper>
   );
