@@ -1,12 +1,8 @@
-# React + Vite
+# Suggested Improvements
+- Add a toggle to view boxes by seasons. When selected, update the legend to reflect seasonal stages.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Include a button to switch the timeline from 90 to 75 years. This allows for a more personalized lifespan view.
 
-Currently, two official plugins are available:
+- Apply translucent coloring to boxes instead of leaving them blank. Use the designated color with reduced opacity to visually indicate the remaining time in each life stage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Redesign the website for improved aesthetics and usability. Aim for a cleaner, more engaging user experience.
