@@ -34,8 +34,7 @@ function App() {
       <AboveDiv>
         <a href="https://www.youtube.com/watch?v=arj7oStGLkU">Inspiratsiooni allikas</a>
         <Description className="fs-2">
-          <span className="fs-1">Elu Kalender</span><br/>
-          <span className="fs-3">Sinu elu 90 aastat nädalates.</span><br/>
+          <span className="fs-1">Elu Kalender</span><br/>          
           <span className="fs-3 fw-bold">Ole teadlik, kui palju aega sul jäänud on!</span>
         </Description>
       </AboveDiv>
@@ -47,7 +46,7 @@ function App() {
           <Legend/>
           <p>
             Sa oled elanud: {weeks} nädalat,{' '}
-            {Math.floor(weeks * 100 / (52 * 90))}% or{' '}
+            {Math.floor(weeks * 100 / (52 * 90))}% või{' '}
             <span style={{ fontWeight: 'bold' }}>
               {simplifyFraction(weeks, TOTAL_WEEKS)}
             </span>{' '}
