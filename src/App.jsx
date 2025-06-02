@@ -35,7 +35,8 @@ function App() {
         <a href="https://www.youtube.com/watch?v=arj7oStGLkU">Inspiratsiooni allikas</a>
         <Description className="fs-2">
           <span className="fs-1">Elu Kalender</span><br/>          
-          <span className="fs-3 fw-bold">Ole teadlik, kui palju aega sul jäänud on!</span>
+          <span className="fs-3 fw-bold">Ole teadlik, kui palju aega sul jäänud on!</span><br/>
+          <span className="fs-4">Iga täpp on 1 nädal.</span>
         </Description>
       </AboveDiv>
       <LifeStagesProvider>

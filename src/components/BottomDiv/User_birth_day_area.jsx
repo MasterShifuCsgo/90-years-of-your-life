@@ -47,7 +47,7 @@ const monthNames = [
       setweeks(0);
       return;
     }
-    if (isNaN(month) || month < 1 || month > 12) {
+    if (isNaN(month) || month < 1 || month > 13) {
         setErrorMessage("Viga: Palun vali kehtiv sünnikuu.");
         setweeks(0);
         return;
