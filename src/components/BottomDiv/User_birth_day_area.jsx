@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Input from './Input';
-import Dropdown from './Dropdown';
-import Button from './Button';
-import Divider from './Divider';
+import Input from '../controls/Input';
+import Dropdown from '../controls/Dropdown';
+import Button from '../controls/Button';
+import Divider from '../Divider';
 import styled from 'styled-components';
 
 const Container = styled.div`

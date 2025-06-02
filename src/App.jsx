@@ -3,12 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import styled from 'styled-components'; // No longer needed in App.jsx itself for the quote
 import CheckboxGrid from "./components/checkboxes/CheckboxGrid.jsx";
 import { LifeStagesProvider, TOTAL_WEEKS } from "./Context.jsx";
-import User_birth_date_area from "./components/User_birth_day_area.jsx";
-import AboveDiv from './components/AboveDiv';
-import BottomDiv from './components/BottomDiv';
-import Description from './components/Description.jsx';
-import Legend from "./components/Legend.jsx";
-import MotivationalQuote from "./components/MotivationalQuote.jsx"; // Import the new component
+import User_birth_date_area from "./components/BottomDiv/User_birth_day_area.jsx";
+import AboveDiv from './components/AboveDiv/AboveDiv.jsx';
+import BottomDiv from './components/BottomDiv/BottomDiv.jsx';
+import Description from './components/AboveDiv/Description.jsx';
+import Legend from "./components/BottomDiv/Legend.jsx";
+import MotivationalQuote from "./components/BottomDiv/MotivationalQuote.jsx"; // Import the new component
 
 // Helper function for simplifying fractions
 const simplifyFraction = (numerator, denominator) => {

@@ -1,4 +1,4 @@
-import {LIFE_STAGES} from "../Context.jsx";
+import {LIFE_STAGES} from "../../Context.jsx";
 
 
 function Legend(){
